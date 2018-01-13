@@ -14,8 +14,12 @@ public class GreetingController {
         return "register";
     }
 
+    @RequestMapping(value="/reg", method= RequestMethod.POST)
+    public String reg(@RequestParam("username") String username, @RequestParam("password") String password) {
+        return "redirect:greeting";
+    }
     @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name,  Model model) {
         model.addAttribute("name", name);
         return "greeting";
     }
